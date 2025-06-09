@@ -1,4 +1,3 @@
----
 applications:
   - name: nextjs-full-features-app
     memory: 1G
@@ -6,10 +5,10 @@ applications:
     instances: 1
     buildpacks:
       - nodejs_buildpack
-    command: node server.js
     env:
       NODE_ENV: production
       NEXT_TELEMETRY_DISABLED: 1
+    command: npm start
     services:
       - nextjs-app-destination-service
       - nextjs-app-connectivity-service
