@@ -1,0 +1,41 @@
+_schema-version: "3.1"
+ID: nextjs-full-features-app
+description: Next.js Full Features Application
+version: 1.0.0
+modules:
+  - name: nextjs-app
+    type: html5
+    path: .
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+        - mkdir -p dist
+        - cp -r .next/standalone/* dist/
+        - cp -r .next/static dist/.next/static
+        - cp -r public dist/public
+    provides:
+      - name: nextjs-app-api
+        properties:
+          name: nextjs-app
+          url: ${default-url}
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 1024M
+      disk-quota: 2048M
+    properties:
+      NODE_ENV: production
+      PORT: ~{port}
+resources:
+  - name: nextjs-app-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+  - name: nextjs-app-connectivity-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite

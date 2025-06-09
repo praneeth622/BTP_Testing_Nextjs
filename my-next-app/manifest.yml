@@ -1,0 +1,15 @@
+---
+applications:
+  - name: nextjs-full-features-app
+    memory: 1G
+    disk_quota: 2G
+    instances: 1
+    buildpacks:
+      - nodejs_buildpack
+    command: node server.js
+    env:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: 1
+    services:
+      - nextjs-app-destination-service
+      - nextjs-app-connectivity-service

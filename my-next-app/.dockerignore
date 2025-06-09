@@ -1,0 +1,44 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Production
+.env*.local
+.env.production
+
+# Debug
+.vscode/
+.DS_Store
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Documentation
+README.md
+*.md
+
+# Deployment files
+cf-cli.tgz
+cf
+manifest.yml
+mta.yaml
+deploy.sh
+.github/
+
+# Other
+coverage/
+.nyc_output/
